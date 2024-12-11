@@ -1,37 +1,39 @@
 aid: agricultural-statistics-service
-name: Agricultural Statistics Service
-description: >-
-  The National Agricultural Statistics Services mission is to serve the United
-  States, its agriculture, and its rural communities by providing meaningful,
-  accurate, and objective statistical information and services. ... Ag Census
-  Web Maps - This API gives developers direct access to county-level data
-  available through a set of geospatial maps ...
-type: Index
-position: Consumer
-access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
-created: '2024-12-03'
-modified: '2024-12-03'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/apis.yml
-specificationVersion: '0.19'
 apis:
   - aid: agricultural-statistics-service:agricultural-statistics-service
     name: Agricultural Statistics Service
+    tags:
+      - API
+    humanURL: https://www.nass.usda.gov/developer/index.php
+    properties:
+      - url: https://www.nass.usda.gov/developer/index.php
+        type: Documentation
     description: >-
       The National Agricultural Statistics Services mission is to serve the
       United States, its agriculture, and its rural communities by providing
       meaningful, accurate, and objective statistical information and services.
       ... Ag Census Web Maps - This API gives developers direct access to
       county-level data available through a set of geospatial maps ...
-    humanURL: https://www.nass.usda.gov/developer/index.php
-    tags:
-      - API
-    properties:
-      - type: Documentation
-        url: https://www.nass.usda.gov/developer/index.php
+name: Agricultural Statistics Service
+tags:
+  - Federal Government
+  - Agriculture
+  - Statistics
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2024-12-03'
+modified: '2024-12-11'
+position: Consumer
+description: >-
+  The National Agricultural Statistics Services mission is to serve the United
+  States, its agriculture, and its rural communities by providing meaningful,
+  accurate, and objective statistical information and services. ... Ag Census
+  Web Maps - This API gives developers direct access to county-level data
+  available through a set of geospatial maps ...
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
+specificationVersion: '0.19'
