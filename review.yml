@@ -1,4 +1,4 @@
-executed: '2024-12-11T16:16:53.615Z'
+executed: '2024-12-21T21:17:19.901Z'
 results:
   - code: apis-json-specification-aid-info
     message: There is an aid.
@@ -35,7 +35,7 @@ results:
         character: 5
       end:
         line: 17
-        character: 70
+        character: 67
   - code: apis-json-apis-baseURL-error
     message: APIs MUST Have a Base URL
     path:
@@ -48,7 +48,7 @@ results:
         character: 4
       end:
         line: 17
-        character: 70
+        character: 67
   - code: apis-json-apis-contact-error
     message: API COULD have a contact.
     path:
@@ -61,7 +61,7 @@ results:
         character: 4
       end:
         line: 17
-        character: 70
+        character: 67
   - code: apis-json-apis-aid-info
     message: API has an aid property.
     path:
@@ -178,7 +178,7 @@ results:
         character: 17
       end:
         line: 17
-        character: 70
+        character: 67
   - code: apis-json-name-info
     message: There is a name.
     path:
@@ -253,7 +253,7 @@ results:
         character: 6
       end:
         line: 23
-        character: 11
+        character: 14
   - code: apis-json-image-info
     message: There is an image.
     path:
@@ -301,7 +301,7 @@ results:
         character: 13
       end:
         line: 34
-        character: 48
+        character: 60
   - code: apis-json-maintainers-info
     message: There is a maintainer object.
     path:
