@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: agricultural-statistics-service:agricultural-statistics-service
     name: Agricultural Statistics Service
-    tags:
-      - API
+    tags: []
     humanURL: https://www.nass.usda.gov/developer/index.php
     properties:
       - url: https://www.nass.usda.gov/developer/index.php
@@ -18,8 +17,8 @@ apis:
       to county-level data through a collection of geospatial maps.
 name: Agricultural Statistics Service
 tags:
-  - Federal Government
   - Agriculture
+  - Federal Government
   - Statistics
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
