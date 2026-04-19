@@ -1,0 +1,20 @@
+{
+  "source_desc": "SURVEY",
+  "sector_desc": "CROPS",
+  "group_desc": "FIELD CROPS",
+  "commodity_desc": "CORN",
+  "class_desc": "ALL CLASSES",
+  "statisticcat_desc": "AREA HARVESTED",
+  "unit_desc": "ACRES",
+  "short_desc": "CORN - ACRES HARVESTED",
+  "domain_desc": "TOTAL",
+  "agg_level_desc": "STATE",
+  "state_alpha": "VA",
+  "state_name": "VIRGINIA",
+  "county_name": "FAIRFAX",
+  "year": 2023,
+  "freq_desc": "ANNUAL",
+  "reference_period_desc": "YEAR",
+  "value": "400,000",
+  "CV_pct": ""
+}

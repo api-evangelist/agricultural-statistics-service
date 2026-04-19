@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/json-structure/quickstats-api-statistics-response-structure.json",
+  "name": "Statistics Response",
+  "description": "Response from the QuickStats api_GET endpoint.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/StatisticsRecord"
+      },
+      "description": "Array of statistics records matching the query."
+    }
+  }
+}

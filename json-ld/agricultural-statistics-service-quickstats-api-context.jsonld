@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "nass": "https://nass.usda.gov/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Statistics Record": "nass:Statistics Record",
+    "sourceDesc": {
+      "@id": "nass:source_desc",
+      "@type": "xsd:string"
+    },
+    "sectorDesc": {
+      "@id": "nass:sector_desc",
+      "@type": "xsd:string"
+    },
+    "groupDesc": {
+      "@id": "nass:group_desc",
+      "@type": "xsd:string"
+    },
+    "commodityDesc": {
+      "@id": "nass:commodity_desc",
+      "@type": "xsd:string"
+    },
+    "classDesc": {
+      "@id": "nass:class_desc",
+      "@type": "xsd:string"
+    },
+    "statisticcatDesc": {
+      "@id": "nass:statisticcat_desc",
+      "@type": "xsd:string"
+    },
+    "unitDesc": {
+      "@id": "nass:unit_desc",
+      "@type": "xsd:string"
+    },
+    "shortDesc": {
+      "@id": "nass:short_desc",
+      "@type": "xsd:string"
+    },
+    "domainDesc": {
+      "@id": "nass:domain_desc",
+      "@type": "xsd:string"
+    },
+    "aggLevelDesc": {
+      "@id": "nass:agg_level_desc",
+      "@type": "xsd:string"
+    },
+    "stateAlpha": {
+      "@id": "nass:state_alpha",
+      "@type": "xsd:string"
+    },
+    "stateName": {
+      "@id": "nass:state_name",
+      "@type": "xsd:string"
+    },
+    "countyName": {
+      "@id": "nass:county_name",
+      "@type": "xsd:string"
+    },
+    "year": {
+      "@id": "nass:year",
+      "@type": "xsd:integer"
+    },
+    "freqDesc": {
+      "@id": "nass:freq_desc",
+      "@type": "xsd:string"
+    },
+    "referencePeriodDesc": {
+      "@id": "nass:reference_period_desc",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "nass:value",
+      "@type": "xsd:string"
+    },
+    "CVPct": {
+      "@id": "nass:CV_pct",
+      "@type": "xsd:string"
+    },
+    "Statistics Response": "nass:Statistics Response",
+    "data": {
+      "@id": "nass:data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Parameter Values Response": "nass:Parameter Values Response",
+    "paramValues": {
+      "@id": "nass:param_values",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Count Response": "nass:Count Response",
+    "count": {
+      "@id": "nass:count",
+      "@type": "xsd:integer"
+    },
+    "Error Response": "nass:Error Response",
+    "error": {
+      "@id": "nass:error",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "nass:message",
+      "@type": "xsd:string"
+    }
+  }
+}

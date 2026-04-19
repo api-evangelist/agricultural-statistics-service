@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/json-schema/quickstats-api-count-response-schema.json",
+  "title": "Count Response",
+  "description": "Response containing the record count for a query.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "Total number of records matching the query parameters.",
+      "example": 1250
+    }
+  }
+}

@@ -1,0 +1,197 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: USDA National Agricultural Statistics Service
+  description: >-
+    Unified vocabulary for USDA NASS APIs covering agricultural statistics,
+    cropland data, vegetation monitoring, and soil moisture analytics.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: QuickStats API
+      namespace: quickstats
+      version: v1
+      baseUrl: https://quickstats.nass.usda.gov/api
+      status: active
+    - name: CroplandCROS API
+      namespace: cropland
+      version: v1
+      baseUrl: https://nassgeodata.gmu.edu/CropScapeService
+      status: active
+    - name: VegScape API
+      namespace: vegscape
+      version: v1
+      baseUrl: https://nassgeodata.gmu.edu/VegScape
+      status: active
+    - name: Crop CASMA API
+      namespace: casma
+      version: v1
+      baseUrl: https://nassgeodata.gmu.edu/CropCASMA
+      status: active
+
+  resources:
+    - name: statistics
+      description: Agricultural statistics data records from surveys and census
+      api: quickstats
+      actions:
+        - get
+    - name: parameters
+      description: Valid values for QuickStats query parameters
+      api: quickstats
+      actions:
+        - get
+    - name: counts
+      description: Record counts for QuickStats queries
+      api: quickstats
+      actions:
+        - get
+
+  actions:
+    - name: get
+      description: Retrieve data records or metadata
+      httpMethod: GET
+      pattern: read
+
+  schemas:
+    core:
+      - StatisticsRecord
+      - ParamValuesResponse
+      - CountResponse
+    responses:
+      - StatisticsResponse
+    errors:
+      - ErrorResponse
+
+  parameters:
+    commodity:
+      - name: commodity_desc
+        description: Agricultural commodity name (CORN, SOYBEANS, CATTLE, etc.)
+      - name: class_desc
+        description: Commodity class or subtype
+      - name: statisticcat_desc
+        description: Statistical category (AREA HARVESTED, PRODUCTION, PRICE RECEIVED)
+      - name: unit_desc
+        description: Unit of measurement (ACRES, BU, HEAD, etc.)
+      - name: sector_desc
+        description: Economic sector (CROPS, LIVESTOCK, ECONOMICS, etc.)
+      - name: group_desc
+        description: Commodity group (FIELD CROPS, VEGETABLES, etc.)
+    location:
+      - name: state_alpha
+        description: Two-letter state abbreviation
+      - name: state_name
+        description: Full state name
+      - name: county_name
+        description: County name
+      - name: agg_level_desc
+        description: Geographic aggregation level
+      - name: zip_5
+        description: Five-digit ZIP code
+    time:
+      - name: year
+        description: Survey or census year
+      - name: freq_desc
+        description: Data collection frequency
+      - name: reference_period_desc
+        description: Reference time period
+    operators:
+      - name: __GE
+        description: Greater than or equal to
+      - name: __LE
+        description: Less than or equal to
+      - name: __GT
+        description: Greater than
+      - name: __LT
+        description: Less than
+      - name: __NE
+        description: Not equal to
+      - name: __LIKE
+        description: Pattern match
+      - name: __NOT_LIKE
+        description: Negative pattern match
+
+  enums:
+    source_desc:
+      - SURVEY
+      - CENSUS
+    agg_level_desc:
+      - NATIONAL
+      - STATE
+      - COUNTY
+      - ZIP CODE
+      - REGION
+    freq_desc:
+      - ANNUAL
+      - MONTHLY
+      - WEEKLY
+      - POINT IN TIME
+      - SEASONAL
+    format:
+      - JSON
+      - XML
+      - CSV
+
+  authentication:
+    schemes:
+      - name: ApiKeyQuery
+        type: apikey
+        description: API key required as query parameter 'key'
+        apis:
+          - quickstats
+
+capability:
+  workflows: []
+  personas:
+    - id: agricultural-researcher
+      name: Agricultural Researcher
+      description: Academics and policy researchers studying agricultural production trends and statistics
+      workflows: []
+    - id: commodity-analyst
+      name: Commodity Analyst
+      description: Traders and market analysts tracking crop and livestock production data
+      workflows: []
+    - id: gis-developer
+      name: GIS Developer
+      description: Developers integrating NASS geospatial cropland and vegetation data into mapping applications
+      workflows: []
+
+  domains:
+    - name: Crop Statistics
+      description: Crop production, harvested area, and yield data
+      resources:
+        - statistics
+    - name: Livestock Statistics
+      description: Livestock inventory, production, and price data
+      resources:
+        - statistics
+    - name: Geospatial Agriculture
+      description: Cropland mapping, vegetation indices, and soil moisture
+      resources: []
+
+  namespaces:
+    consumed:
+      - name: quickstats
+        type: http
+        baseUri: https://quickstats.nass.usda.gov/api
+    exposed: []
+
+  binds: []
+
+crossReference:
+  - resource: statistics
+    operations:
+      - getStatistics
+      - getCounts
+    workflows: []
+    personas:
+      - Agricultural Researcher
+      - Commodity Analyst
+  - resource: parameters
+    operations:
+      - getParamValues
+    workflows: []
+    personas:
+      - Agricultural Researcher
+      - GIS Developer

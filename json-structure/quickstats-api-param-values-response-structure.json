@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/json-structure/quickstats-api-param-values-response-structure.json",
+  "name": "Parameter Values Response",
+  "description": "Response containing all valid values for a parameter.",
+  "type": "object",
+  "properties": {
+    "param_values": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of valid values for the requested parameter.",
+      "example": [
+        "CORN",
+        "SOYBEANS",
+        "WHEAT"
+      ]
+    }
+  }
+}

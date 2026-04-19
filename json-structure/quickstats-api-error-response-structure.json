@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/json-structure/quickstats-api-error-response-structure.json",
+  "name": "Error Response",
+  "description": "Error response from the QuickStats API.",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string",
+      "description": "Error type or description.",
+      "example": "too many results"
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message.",
+      "example": "The request would return more than 50,000 records. Please narrow your query."
+    }
+  }
+}
