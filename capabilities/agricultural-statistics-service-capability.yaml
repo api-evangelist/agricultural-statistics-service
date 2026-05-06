@@ -1,0 +1,344 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: USDA NASS QuickStats API
+  description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS
+    Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS
+    surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison
+    operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.
+  tags:
+  - Agricultural
+  - Statistics
+  - Service
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: agricultural-statistics-service
+    baseUri: https://quickstats.nass.usda.gov/api
+    description: USDA NASS QuickStats API HTTP API.
+    authentication:
+      type: apikey
+      in: query
+      name: key
+      value: '{{AGRICULTURAL_STATISTICS_SERVICE_TOKEN}}'
+    resources:
+    - name: api-get
+      path: /api_GET
+      operations:
+      - name: getstatistics
+        method: GET
+        description: USDA NASS Get Statistics
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          required: true
+          description: API key obtained by registering at the QuickStats API portal.
+        - name: commodity_desc
+          in: query
+          type: string
+          description: Commodity description (e.g., CORN, SOYBEANS, CATTLE).
+        - name: class_desc
+          in: query
+          type: string
+          description: Commodity class description.
+        - name: statisticcat_desc
+          in: query
+          type: string
+          description: Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).
+        - name: unit_desc
+          in: query
+          type: string
+          description: Unit of measurement (e.g., ACRES, BU, HEAD).
+        - name: sector_desc
+          in: query
+          type: string
+          description: Sector or division of the agricultural economy.
+        - name: group_desc
+          in: query
+          type: string
+          description: Commodity group description (e.g., FIELD CROPS, VEGETABLES).
+        - name: state_alpha
+          in: query
+          type: string
+          description: Two-letter state abbreviation (e.g., VA, IA, TX).
+        - name: state_name
+          in: query
+          type: string
+          description: Full state name.
+        - name: county_name
+          in: query
+          type: string
+          description: County name.
+        - name: agg_level_desc
+          in: query
+          type: string
+          description: Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).
+        - name: year
+          in: query
+          type: integer
+          description: Survey year (e.g., 2023). Supports operators like year__GE=2010.
+        - name: year__GE
+          in: query
+          type: integer
+          description: Year greater than or equal to specified value.
+        - name: year__LE
+          in: query
+          type: integer
+          description: Year less than or equal to specified value.
+        - name: freq_desc
+          in: query
+          type: string
+          description: Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).
+        - name: reference_period_desc
+          in: query
+          type: string
+          description: Reference period description (e.g., YEAR, JAN, JUN).
+        - name: format
+          in: query
+          type: string
+          description: Response format (JSON, XML, CSV). Defaults to JSON.
+        - name: callback
+          in: query
+          type: string
+          description: JSONP callback function name for cross-origin requests.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get-param-values
+      path: /get_param_values
+      operations:
+      - name: getparamvalues
+        method: GET
+        description: USDA NASS Get Parameter Values
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          required: true
+          description: API key.
+        - name: param
+          in: query
+          type: string
+          required: true
+          description: The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: get-counts
+      path: /get_counts
+      operations:
+      - name: getcounts
+        method: GET
+        description: USDA NASS Get Record Counts
+        inputParameters:
+        - name: key
+          in: query
+          type: string
+          required: true
+          description: API key.
+        - name: commodity_desc
+          in: query
+          type: string
+          description: Commodity description to count records for.
+        - name: state_alpha
+          in: query
+          type: string
+          description: State abbreviation to filter.
+        - name: year__GE
+          in: query
+          type: integer
+          description: Year filter (greater than or equal).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: agricultural-statistics-service-rest
+    description: REST adapter for USDA NASS QuickStats API.
+    resources:
+    - path: /api_GET
+      name: getstatistics
+      operations:
+      - method: GET
+        name: getstatistics
+        description: USDA NASS Get Statistics
+        call: agricultural-statistics-service.getstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /get_param_values
+      name: getparamvalues
+      operations:
+      - method: GET
+        name: getparamvalues
+        description: USDA NASS Get Parameter Values
+        call: agricultural-statistics-service.getparamvalues
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /get_counts
+      name: getcounts
+      operations:
+      - method: GET
+        name: getcounts
+        description: USDA NASS Get Record Counts
+        call: agricultural-statistics-service.getcounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: agricultural-statistics-service-mcp
+    transport: http
+    description: MCP adapter for USDA NASS QuickStats API for AI agent use.
+    tools:
+    - name: getstatistics
+      description: USDA NASS Get Statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agricultural-statistics-service.getstatistics
+      with:
+        key: tools.key
+        commodity_desc: tools.commodity_desc
+        class_desc: tools.class_desc
+        statisticcat_desc: tools.statisticcat_desc
+        unit_desc: tools.unit_desc
+        sector_desc: tools.sector_desc
+        group_desc: tools.group_desc
+        state_alpha: tools.state_alpha
+        state_name: tools.state_name
+        county_name: tools.county_name
+        agg_level_desc: tools.agg_level_desc
+        year: tools.year
+        year__GE: tools.year__GE
+        year__LE: tools.year__LE
+        freq_desc: tools.freq_desc
+        reference_period_desc: tools.reference_period_desc
+        format: tools.format
+        callback: tools.callback
+      inputParameters:
+      - name: key
+        type: string
+        description: API key obtained by registering at the QuickStats API portal.
+        required: true
+      - name: commodity_desc
+        type: string
+        description: Commodity description (e.g., CORN, SOYBEANS, CATTLE).
+      - name: class_desc
+        type: string
+        description: Commodity class description.
+      - name: statisticcat_desc
+        type: string
+        description: Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).
+      - name: unit_desc
+        type: string
+        description: Unit of measurement (e.g., ACRES, BU, HEAD).
+      - name: sector_desc
+        type: string
+        description: Sector or division of the agricultural economy.
+      - name: group_desc
+        type: string
+        description: Commodity group description (e.g., FIELD CROPS, VEGETABLES).
+      - name: state_alpha
+        type: string
+        description: Two-letter state abbreviation (e.g., VA, IA, TX).
+      - name: state_name
+        type: string
+        description: Full state name.
+      - name: county_name
+        type: string
+        description: County name.
+      - name: agg_level_desc
+        type: string
+        description: Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).
+      - name: year
+        type: integer
+        description: Survey year (e.g., 2023). Supports operators like year__GE=2010.
+      - name: year__GE
+        type: integer
+        description: Year greater than or equal to specified value.
+      - name: year__LE
+        type: integer
+        description: Year less than or equal to specified value.
+      - name: freq_desc
+        type: string
+        description: Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).
+      - name: reference_period_desc
+        type: string
+        description: Reference period description (e.g., YEAR, JAN, JUN).
+      - name: format
+        type: string
+        description: Response format (JSON, XML, CSV). Defaults to JSON.
+      - name: callback
+        type: string
+        description: JSONP callback function name for cross-origin requests.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getparamvalues
+      description: USDA NASS Get Parameter Values
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agricultural-statistics-service.getparamvalues
+      with:
+        key: tools.key
+        param: tools.param
+      inputParameters:
+      - name: key
+        type: string
+        description: API key.
+        required: true
+      - name: param
+        type: string
+        description: The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcounts
+      description: USDA NASS Get Record Counts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: agricultural-statistics-service.getcounts
+      with:
+        key: tools.key
+        commodity_desc: tools.commodity_desc
+        state_alpha: tools.state_alpha
+        year__GE: tools.year__GE
+      inputParameters:
+      - name: key
+        type: string
+        description: API key.
+        required: true
+      - name: commodity_desc
+        type: string
+        description: Commodity description to count records for.
+      - name: state_alpha
+        type: string
+        description: State abbreviation to filter.
+      - name: year__GE
+        type: integer
+        description: Year filter (greater than or equal).
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    AGRICULTURAL_STATISTICS_SERVICE_TOKEN: AGRICULTURAL_STATISTICS_SERVICE_TOKEN
