@@ -59,7 +59,7 @@ apis:
       - type: JSONStructure
         url: json-structure/quickstats-api-statistics-record-structure.json
         title: Statistics Record Structure
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
   - aid: agricultural-statistics-service:cropland-cros-api
     name: USDA NASS CroplandCROS API
