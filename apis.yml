@@ -55,9 +55,9 @@ apis:
     title: Statistics Record Structure
   - type: JSONLD
     url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/quickstats-parameters.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/quickstats-statistics.yaml
 - aid: agricultural-statistics-service:cropland-cros-api
   name: USDA NASS CroplandCROS API
