@@ -109,6 +109,8 @@ apis:
   - type: DataAPI
     url: https://nassgeodata.gmu.edu/CropCASMA
 common:
+- type: AgenticAccess
+  url: agentic-access/agricultural-statistics-service-agentic-access.yml
 - type: DomainSecurity
   url: security/agricultural-statistics-service-domain-security.yml
 - type: Authentication
