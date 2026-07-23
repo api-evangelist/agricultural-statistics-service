@@ -1,0 +1,410 @@
+openapi: 3.0.3
+info:
+  title: USDA NASS QuickStats Parameters Statistics API
+  description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.
+  version: v1
+  contact:
+    url: https://www.nass.usda.gov/
+    email: nass@usda.gov
+  x-generated-from: documentation
+servers:
+- url: https://quickstats.nass.usda.gov/api
+  description: USDA NASS QuickStats API
+security:
+- ApiKeyQuery: []
+tags:
+- name: Statistics
+  description: Agricultural statistics data retrieval and filtering
+paths:
+  /api_GET:
+    get:
+      operationId: getStatistics
+      summary: USDA NASS Get Statistics
+      description: Retrieves agricultural statistics data records from the Quick Stats database. Supports filtering by commodity, location, time period, and statistical category using comparison operators. Returns up to 50,000 records per request. Response formats include JSON (default), XML, and CSV.
+      tags:
+      - Statistics
+      parameters:
+      - name: key
+        in: query
+        description: API key obtained by registering at the QuickStats API portal.
+        required: true
+        schema:
+          type: string
+          example: YOUR_API_KEY
+      - name: commodity_desc
+        in: query
+        description: Commodity description (e.g., CORN, SOYBEANS, CATTLE).
+        required: false
+        schema:
+          type: string
+          example: CORN
+      - name: class_desc
+        in: query
+        description: Commodity class description.
+        required: false
+        schema:
+          type: string
+          example: ALL CLASSES
+      - name: statisticcat_desc
+        in: query
+        description: Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).
+        required: false
+        schema:
+          type: string
+          example: AREA HARVESTED
+      - name: unit_desc
+        in: query
+        description: Unit of measurement (e.g., ACRES, BU, HEAD).
+        required: false
+        schema:
+          type: string
+          example: ACRES
+      - name: sector_desc
+        in: query
+        description: Sector or division of the agricultural economy.
+        required: false
+        schema:
+          type: string
+          example: CROPS
+      - name: group_desc
+        in: query
+        description: Commodity group description (e.g., FIELD CROPS, VEGETABLES).
+        required: false
+        schema:
+          type: string
+          example: FIELD CROPS
+      - name: state_alpha
+        in: query
+        description: Two-letter state abbreviation (e.g., VA, IA, TX).
+        required: false
+        schema:
+          type: string
+          example: VA
+      - name: state_name
+        in: query
+        description: Full state name.
+        required: false
+        schema:
+          type: string
+          example: VIRGINIA
+      - name: county_name
+        in: query
+        description: County name.
+        required: false
+        schema:
+          type: string
+          example: FAIRFAX
+      - name: agg_level_desc
+        in: query
+        description: Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).
+        required: false
+        schema:
+          type: string
+          enum:
+          - NATIONAL
+          - STATE
+          - COUNTY
+          - ZIP CODE
+          - REGION
+          example: STATE
+      - name: year
+        in: query
+        description: Survey year (e.g., 2023). Supports operators like year__GE=2010.
+        required: false
+        schema:
+          type: integer
+          example: 2023
+      - name: year__GE
+        in: query
+        description: Year greater than or equal to specified value.
+        required: false
+        schema:
+          type: integer
+          example: 2010
+      - name: year__LE
+        in: query
+        description: Year less than or equal to specified value.
+        required: false
+        schema:
+          type: integer
+          example: 2023
+      - name: freq_desc
+        in: query
+        description: Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).
+        required: false
+        schema:
+          type: string
+          enum:
+          - ANNUAL
+          - MONTHLY
+          - WEEKLY
+          - POINT IN TIME
+          - SEASONAL
+          example: ANNUAL
+      - name: reference_period_desc
+        in: query
+        description: Reference period description (e.g., YEAR, JAN, JUN).
+        required: false
+        schema:
+          type: string
+          example: YEAR
+      - name: format
+        in: query
+        description: Response format (JSON, XML, CSV). Defaults to JSON.
+        required: false
+        schema:
+          type: string
+          enum:
+          - JSON
+          - XML
+          - CSV
+          example: JSON
+      - name: callback
+        in: query
+        description: JSONP callback function name for cross-origin requests.
+        required: false
+        schema:
+          type: string
+          example: myCallback
+      responses:
+        '200':
+          description: Agricultural statistics data records matching the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatisticsResponse'
+              examples:
+                GetStatistics200Example:
+                  summary: Default getStatistics 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - source_desc: SURVEY
+                      sector_desc: CROPS
+                      group_desc: FIELD CROPS
+                      commodity_desc: CORN
+                      class_desc: ALL CLASSES
+                      prodn_practice_desc: ALL PRODUCTION PRACTICES
+                      util_practice_desc: ALL UTILIZATION PRACTICES
+                      statisticcat_desc: AREA HARVESTED
+                      unit_desc: ACRES
+                      short_desc: CORN - ACRES HARVESTED
+                      domain_desc: TOTAL
+                      domaincat_desc: NOT SPECIFIED
+                      agg_level_desc: STATE
+                      state_ansi: '51'
+                      state_fips_code: '51'
+                      state_alpha: VA
+                      state_name: VIRGINIA
+                      asd_code: '00'
+                      asd_desc: STATE TOTAL
+                      county_ansi: ''
+                      county_code: ''
+                      county_name: ''
+                      zip_5: ''
+                      region_desc: ''
+                      watershed_code: ''
+                      watershed_desc: ''
+                      congr_district_code: ''
+                      country_code: '9000'
+                      country_name: UNITED STATES
+                      location_desc: VIRGINIA
+                      year: 2023
+                      freq_desc: ANNUAL
+                      begin_code: '00'
+                      end_code: '00'
+                      reference_period_desc: YEAR
+                      week_ending: ''
+                      load_time: '2024-01-15 09:30:00'
+                      value: 400,000
+                      CV_pct: ''
+        '400':
+          description: Bad request. Too many records or invalid parameters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized. Missing or invalid API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /get_counts:
+    get:
+      operationId: getCounts
+      summary: USDA NASS Get Record Counts
+      description: Returns the total count of records that would be returned by a given query without fetching the actual data. Useful for validating queries before making full data requests, particularly to ensure results stay within the 50,000 record limit.
+      tags:
+      - Statistics
+      parameters:
+      - name: key
+        in: query
+        description: API key.
+        required: true
+        schema:
+          type: string
+          example: YOUR_API_KEY
+      - name: commodity_desc
+        in: query
+        description: Commodity description to count records for.
+        required: false
+        schema:
+          type: string
+          example: CORN
+      - name: state_alpha
+        in: query
+        description: State abbreviation to filter.
+        required: false
+        schema:
+          type: string
+          example: VA
+      - name: year__GE
+        in: query
+        description: Year filter (greater than or equal).
+        required: false
+        schema:
+          type: integer
+          example: 2010
+      responses:
+        '200':
+          description: Count of records matching the query.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountResponse'
+              examples:
+                GetCounts200Example:
+                  summary: Default getCounts 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 1250
+        '401':
+          description: Unauthorized. Missing or invalid API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    StatisticsRecord:
+      type: object
+      title: Statistics Record
+      description: A single agricultural statistics data record from the QuickStats database.
+      properties:
+        source_desc:
+          type: string
+          description: Data source type (SURVEY or CENSUS).
+          example: SURVEY
+        sector_desc:
+          type: string
+          description: High-level sector of the agricultural economy.
+          example: CROPS
+        group_desc:
+          type: string
+          description: Commodity group within the sector.
+          example: FIELD CROPS
+        commodity_desc:
+          type: string
+          description: Name of the agricultural commodity.
+          example: CORN
+        class_desc:
+          type: string
+          description: Commodity class or subtype.
+          example: ALL CLASSES
+        statisticcat_desc:
+          type: string
+          description: Statistical measurement category.
+          example: AREA HARVESTED
+        unit_desc:
+          type: string
+          description: Unit of measurement for the value.
+          example: ACRES
+        short_desc:
+          type: string
+          description: Short description combining commodity and statistic.
+          example: CORN - ACRES HARVESTED
+        domain_desc:
+          type: string
+          description: Domain category (TOTAL, CHEMICAL, IRRIGATION, etc.).
+          example: TOTAL
+        agg_level_desc:
+          type: string
+          description: Geographic aggregation level.
+          example: STATE
+        state_alpha:
+          type: string
+          description: Two-letter state abbreviation.
+          example: VA
+        state_name:
+          type: string
+          description: Full state name.
+          example: VIRGINIA
+        county_name:
+          type: string
+          description: County name (if county-level data).
+          example: FAIRFAX
+        year:
+          type: integer
+          description: Survey or census year.
+          example: 2023
+        freq_desc:
+          type: string
+          description: Data collection frequency.
+          example: ANNUAL
+        reference_period_desc:
+          type: string
+          description: Reference time period (YEAR, JAN, JUN, etc.).
+          example: YEAR
+        value:
+          type: string
+          description: Statistical value (may include formatting like commas; use as string).
+          example: 400,000
+        CV_pct:
+          type: string
+          description: Coefficient of variation percentage (data reliability indicator).
+          example: ''
+    StatisticsResponse:
+      type: object
+      title: Statistics Response
+      description: Response from the QuickStats api_GET endpoint.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatisticsRecord'
+          description: Array of statistics records matching the query.
+    CountResponse:
+      type: object
+      title: Count Response
+      description: Response containing the record count for a query.
+      properties:
+        count:
+          type: integer
+          description: Total number of records matching the query parameters.
+          example: 1250
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error response from the QuickStats API.
+      properties:
+        error:
+          type: string
+          description: Error type or description.
+          example: too many results
+        message:
+          type: string
+          description: Human-readable error message.
+          example: The request would return more than 50,000 records. Please narrow your query.
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key obtained by registering at https://quickstats.nass.usda.gov/api and agreeing to NASS Terms of Service.

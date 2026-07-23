@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: USDA NASS QuickStats Parameters API
+  description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.
+  version: v1
+  contact:
+    url: https://www.nass.usda.gov/
+    email: nass@usda.gov
+  x-generated-from: documentation
+servers:
+- url: https://quickstats.nass.usda.gov/api
+  description: USDA NASS QuickStats API
+security:
+- ApiKeyQuery: []
+tags:
+- name: Parameters
+  description: Parameter value discovery for query building
+paths:
+  /get_param_values:
+    get:
+      operationId: getParamValues
+      summary: USDA NASS Get Parameter Values
+      description: Returns all possible values for a specified QuickStats parameter, helping users discover valid values for building queries. Useful for finding valid commodity names, state codes, statistical categories, and other parameter values.
+      tags:
+      - Parameters
+      parameters:
+      - name: key
+        in: query
+        description: API key.
+        required: true
+        schema:
+          type: string
+          example: YOUR_API_KEY
+      - name: param
+        in: query
+        description: The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).
+        required: true
+        schema:
+          type: string
+          example: commodity_desc
+      responses:
+        '200':
+          description: All valid values for the specified parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParamValuesResponse'
+              examples:
+                GetParamValues200Example:
+                  summary: Default getParamValues 200 response
+                  x-microcks-default: true
+                  value:
+                    param_values:
+                    - CORN
+                    - SOYBEANS
+                    - WHEAT
+                    - CATTLE
+                    - HOGS
+        '401':
+          description: Unauthorized. Missing or invalid API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ParamValuesResponse:
+      type: object
+      title: Parameter Values Response
+      description: Response containing all valid values for a parameter.
+      properties:
+        param_values:
+          type: array
+          items:
+            type: string
+          description: List of valid values for the requested parameter.
+          example:
+          - CORN
+          - SOYBEANS
+          - WHEAT
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error response from the QuickStats API.
+      properties:
+        error:
+          type: string
+          description: Error type or description.
+          example: too many results
+        message:
+          type: string
+          description: Human-readable error message.
+          example: The request would return more than 50,000 records. Please narrow your query.
+  securitySchemes:
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: key
+      description: API key obtained by registering at https://quickstats.nass.usda.gov/api and agreeing to NASS Terms of Service.
