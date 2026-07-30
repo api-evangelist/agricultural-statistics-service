@@ -2,7 +2,20 @@ aid: agricultural-statistics-service
 url: https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/apis.yml
 name: Agricultural Statistics Service
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agricultural-statistics-service.png
 tags:
 - Agriculture
 - Federal Government
@@ -18,52 +31,12 @@ created: '2024-12-03'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: agricultural-statistics-service:quickstats-api
-  name: USDA NASS QuickStats API
-  description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS
-    Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production. The API
-    supports filtering by commodity, location, and time with comparison operators. Responses are available in JSON, XML, or
-    CSV format. An API key is required; maximum 50,000 records per request.
-  humanURL: https://quickstats.nass.usda.gov/api
-  baseURL: https://quickstats.nass.usda.gov/api
-  tags:
-  - Agricultural Statistics
-  - Crop Data
-  - Livestock Data
-  - Census Of Agriculture
-  - Open Data
-  properties:
-  - type: Documentation
-    url: https://quickstats.nass.usda.gov/api
-  - type: APIReference
-    url: https://quickstats.nass.usda.gov/api/#param_define
-  - type: Authentication
-    url: https://quickstats.nass.usda.gov/api
-  - type: OpenAPI
-    url: openapi/agricultural-statistics-service-quickstats-api.yaml
-  - type: JSONSchema
-    url: json-schema/quickstats-api-statistics-record-schema.json
-    title: Statistics Record Schema
-  - type: JSONSchema
-    url: json-schema/quickstats-api-statistics-response-schema.json
-    title: Statistics Response Schema
-  - type: JSONSchema
-    url: json-schema/quickstats-api-count-response-schema.json
-    title: Count Response Schema
-  - type: JSONStructure
-    url: json-structure/quickstats-api-statistics-record-structure.json
-    title: Statistics Record Structure
-  - type: JSONLD
-    url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-parameters.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-statistics.yaml
 - aid: agricultural-statistics-service:cropland-cros-api
   name: USDA NASS CroplandCROS API
-  description: The CroplandCROS API provides access to the Cropland Data Layer (CDL), a crop-specific land cover data layer
-    with 30-meter spatial resolution covering the continental United States. Historical CDL data is available back to 1997
-    for select states.
+  description: >-
+    The CroplandCROS API provides access to the Cropland Data Layer (CDL), a crop-specific land cover
+    data layer with 30-meter spatial resolution covering the continental United States. Historical CDL
+    data is available back to 1997 for select states.
   humanURL: https://www.nass.usda.gov/developer/index.php
   baseURL: https://nassgeodata.gmu.edu/CropScapeService
   tags:
@@ -78,8 +51,10 @@ apis:
     url: https://nassgeodata.gmu.edu/CropScapeService
 - aid: agricultural-statistics-service:vegscape-api
   name: USDA NASS VegScape API
-  description: The VegScape API delivers vegetation condition indices at 250-meter spatial resolution covering the continental
-    United States. Data includes daily and weekly vegetation index composites available since 2000.
+  description: >-
+    The VegScape API delivers vegetation condition indices at 250-meter spatial resolution covering the
+    continental United States. Data includes daily and weekly vegetation index composites available since
+    2000.
   humanURL: https://www.nass.usda.gov/developer/index.php
   baseURL: https://nassgeodata.gmu.edu/VegScape
   tags:
@@ -94,8 +69,9 @@ apis:
     url: https://nassgeodata.gmu.edu/VegScape
 - aid: agricultural-statistics-service:crop-casma-api
   name: USDA NASS Crop CASMA API
-  description: The Crop CASMA API provides programmatic access to crop vegetation and soil moisture conditions using NASA
-    SMAP and MODIS satellite data for agricultural drought monitoring and crop condition analysis.
+  description: >-
+    The Crop CASMA API provides programmatic access to crop vegetation and soil moisture conditions using
+    NASA SMAP and MODIS satellite data for agricultural drought monitoring and crop condition analysis.
   humanURL: https://www.nass.usda.gov/developer/index.php
   baseURL: https://nassgeodata.gmu.edu/CropCASMA
   tags:
@@ -108,7 +84,69 @@ apis:
     url: https://www.nass.usda.gov/developer/index.php
   - type: DataAPI
     url: https://nassgeodata.gmu.edu/CropCASMA
+- aid: agricultural-statistics-service:agricultural-statistics-service-parameters-api
+  name: Agricultural Statistics Service Parameters API
+  description: Parameter value discovery for query building
+  humanURL: https://quickstats.nass.usda.gov/api
+  baseURL: https://quickstats.nass.usda.gov/api
+  tags:
+  - Parameters
+  properties:
+  - type: OpenAPI
+    url: openapi/agricultural-statistics-service-parameters-api-openapi.yml
+  - type: Documentation
+    url: https://quickstats.nass.usda.gov/api
+  - type: APIReference
+    url: https://quickstats.nass.usda.gov/api/#param_define
+  - type: Authentication
+    url: https://quickstats.nass.usda.gov/api
+  - type: JSONSchema
+    url: json-schema/quickstats-api-statistics-record-schema.json
+  - type: JSONSchema
+    url: json-schema/quickstats-api-statistics-response-schema.json
+  - type: JSONSchema
+    url: json-schema/quickstats-api-count-response-schema.json
+  - type: JSONStructure
+    url: json-structure/quickstats-api-statistics-record-structure.json
+  - type: JSONLD
+    url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/quickstats-parameters.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/quickstats-statistics.yaml
+- aid: agricultural-statistics-service:agricultural-statistics-service-statistics-api
+  name: Agricultural Statistics Service Statistics API
+  description: Agricultural statistics data retrieval and filtering
+  humanURL: https://quickstats.nass.usda.gov/api
+  baseURL: https://quickstats.nass.usda.gov/api
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/agricultural-statistics-service-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://quickstats.nass.usda.gov/api
+  - type: APIReference
+    url: https://quickstats.nass.usda.gov/api/#param_define
+  - type: Authentication
+    url: https://quickstats.nass.usda.gov/api
+  - type: JSONSchema
+    url: json-schema/quickstats-api-statistics-record-schema.json
+  - type: JSONSchema
+    url: json-schema/quickstats-api-statistics-response-schema.json
+  - type: JSONSchema
+    url: json-schema/quickstats-api-count-response-schema.json
+  - type: JSONStructure
+    url: json-structure/quickstats-api-statistics-record-structure.json
+  - type: JSONLD
+    url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/quickstats-parameters.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/quickstats-statistics.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/agricultural-statistics-service/overview
 - type: AgenticAccess
   url: agentic-access/agricultural-statistics-service-agentic-access.yml
 - type: DomainSecurity
