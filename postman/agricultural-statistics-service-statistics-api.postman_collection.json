@@ -1,0 +1,739 @@
+{
+  "info": {
+    "_postman_id": "93e382d5-9acb-4b62-a3b6-65887cf5cd2c",
+    "name": "USDA NASS QuickStats Parameters Statistics API",
+    "description": "The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.\n\nContact Support:\n Email: nass@usda.gov",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:09.000Z",
+    "updatedAt": "2026-07-28T00:29:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-93e382d5-9acb-4b62-a3b6-65887cf5cd2c"
+  },
+  "item": [
+    {
+      "name": "api_GET",
+      "item": [
+        {
+          "name": "USDA NASS Get Statistics",
+          "id": "7c4b39c1-b91e-46c4-a9c3-46968530fc79",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api_GET?key=<string>&commodity_desc=<string>&class_desc=<string>&statisticcat_desc=<string>&unit_desc=<string>&sector_desc=<string>&group_desc=<string>&state_alpha=<string>&state_name=<string>&county_name=<string>&agg_level_desc=COUNTY&year=<integer>&year__GE=<integer>&year__LE=<integer>&freq_desc=POINT IN TIME&reference_period_desc=<string>&format=CSV&callback=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api_GET"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API key obtained by registering at the QuickStats API portal.",
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Commodity description (e.g., CORN, SOYBEANS, CATTLE).",
+                  "key": "commodity_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Commodity class description.",
+                  "key": "class_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).",
+                  "key": "statisticcat_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Unit of measurement (e.g., ACRES, BU, HEAD).",
+                  "key": "unit_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sector or division of the agricultural economy.",
+                  "key": "sector_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Commodity group description (e.g., FIELD CROPS, VEGETABLES).",
+                  "key": "group_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Two-letter state abbreviation (e.g., VA, IA, TX).",
+                  "key": "state_alpha",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Full state name.",
+                  "key": "state_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "County name.",
+                  "key": "county_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).",
+                  "key": "agg_level_desc",
+                  "value": "COUNTY"
+                },
+                {
+                  "description": "Survey year (e.g., 2023). Supports operators like year__GE=2010.",
+                  "key": "year",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Year greater than or equal to specified value.",
+                  "key": "year__GE",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Year less than or equal to specified value.",
+                  "key": "year__LE",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).",
+                  "key": "freq_desc",
+                  "value": "POINT IN TIME"
+                },
+                {
+                  "description": "Reference period description (e.g., YEAR, JAN, JUN).",
+                  "key": "reference_period_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Response format (JSON, XML, CSV). Defaults to JSON.",
+                  "key": "format",
+                  "value": "CSV"
+                },
+                {
+                  "description": "JSONP callback function name for cross-origin requests.",
+                  "key": "callback",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves agricultural statistics data records from the Quick Stats database. Supports filtering by commodity, location, time period, and statistical category using comparison operators. Returns up to 50,000 records per request. Response formats include JSON (default), XML, and CSV."
+          },
+          "response": [
+            {
+              "id": "436c71dd-3b1b-4bb1-9171-0be13df2f441",
+              "name": "Agricultural statistics data records matching the query.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api_GET?key=<API Key>&commodity_desc=<string>&class_desc=<string>&statisticcat_desc=<string>&unit_desc=<string>&sector_desc=<string>&group_desc=<string>&state_alpha=<string>&state_name=<string>&county_name=<string>&agg_level_desc=COUNTY&year=<integer>&year__GE=<integer>&year__LE=<integer>&freq_desc=POINT IN TIME&reference_period_desc=<string>&format=CSV&callback=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api_GET"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key obtained by registering at the QuickStats API portal.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Commodity description (e.g., CORN, SOYBEANS, CATTLE).",
+                      "key": "commodity_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity class description.",
+                      "key": "class_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).",
+                      "key": "statisticcat_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Unit of measurement (e.g., ACRES, BU, HEAD).",
+                      "key": "unit_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sector or division of the agricultural economy.",
+                      "key": "sector_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity group description (e.g., FIELD CROPS, VEGETABLES).",
+                      "key": "group_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Two-letter state abbreviation (e.g., VA, IA, TX).",
+                      "key": "state_alpha",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Full state name.",
+                      "key": "state_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "County name.",
+                      "key": "county_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).",
+                      "key": "agg_level_desc",
+                      "value": "COUNTY"
+                    },
+                    {
+                      "description": "Survey year (e.g., 2023). Supports operators like year__GE=2010.",
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year greater than or equal to specified value.",
+                      "key": "year__GE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year less than or equal to specified value.",
+                      "key": "year__LE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).",
+                      "key": "freq_desc",
+                      "value": "POINT IN TIME"
+                    },
+                    {
+                      "description": "Reference period description (e.g., YEAR, JAN, JUN).",
+                      "key": "reference_period_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format (JSON, XML, CSV). Defaults to JSON.",
+                      "key": "format",
+                      "value": "CSV"
+                    },
+                    {
+                      "description": "JSONP callback function name for cross-origin requests.",
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"source_desc\": \"<string>\",\n      \"sector_desc\": \"<string>\",\n      \"group_desc\": \"<string>\",\n      \"commodity_desc\": \"<string>\",\n      \"class_desc\": \"<string>\",\n      \"statisticcat_desc\": \"<string>\",\n      \"unit_desc\": \"<string>\",\n      \"short_desc\": \"<string>\",\n      \"domain_desc\": \"<string>\",\n      \"agg_level_desc\": \"<string>\",\n      \"state_alpha\": \"<string>\",\n      \"state_name\": \"<string>\",\n      \"county_name\": \"<string>\",\n      \"year\": \"<integer>\",\n      \"freq_desc\": \"<string>\",\n      \"reference_period_desc\": \"<string>\",\n      \"value\": \"<string>\",\n      \"CV_pct\": \"<string>\"\n    },\n    {\n      \"source_desc\": \"<string>\",\n      \"sector_desc\": \"<string>\",\n      \"group_desc\": \"<string>\",\n      \"commodity_desc\": \"<string>\",\n      \"class_desc\": \"<string>\",\n      \"statisticcat_desc\": \"<string>\",\n      \"unit_desc\": \"<string>\",\n      \"short_desc\": \"<string>\",\n      \"domain_desc\": \"<string>\",\n      \"agg_level_desc\": \"<string>\",\n      \"state_alpha\": \"<string>\",\n      \"state_name\": \"<string>\",\n      \"county_name\": \"<string>\",\n      \"year\": \"<integer>\",\n      \"freq_desc\": \"<string>\",\n      \"reference_period_desc\": \"<string>\",\n      \"value\": \"<string>\",\n      \"CV_pct\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:10.000Z",
+              "updatedAt": "2026-07-28T00:29:10.000Z",
+              "uid": "35240-436c71dd-3b1b-4bb1-9171-0be13df2f441"
+            },
+            {
+              "id": "bd5a8797-6929-4c60-b690-621f08ff0d4d",
+              "name": "Bad request. Too many records or invalid parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api_GET?key=<API Key>&commodity_desc=<string>&class_desc=<string>&statisticcat_desc=<string>&unit_desc=<string>&sector_desc=<string>&group_desc=<string>&state_alpha=<string>&state_name=<string>&county_name=<string>&agg_level_desc=COUNTY&year=<integer>&year__GE=<integer>&year__LE=<integer>&freq_desc=POINT IN TIME&reference_period_desc=<string>&format=CSV&callback=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api_GET"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key obtained by registering at the QuickStats API portal.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Commodity description (e.g., CORN, SOYBEANS, CATTLE).",
+                      "key": "commodity_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity class description.",
+                      "key": "class_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).",
+                      "key": "statisticcat_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Unit of measurement (e.g., ACRES, BU, HEAD).",
+                      "key": "unit_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sector or division of the agricultural economy.",
+                      "key": "sector_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity group description (e.g., FIELD CROPS, VEGETABLES).",
+                      "key": "group_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Two-letter state abbreviation (e.g., VA, IA, TX).",
+                      "key": "state_alpha",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Full state name.",
+                      "key": "state_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "County name.",
+                      "key": "county_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).",
+                      "key": "agg_level_desc",
+                      "value": "COUNTY"
+                    },
+                    {
+                      "description": "Survey year (e.g., 2023). Supports operators like year__GE=2010.",
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year greater than or equal to specified value.",
+                      "key": "year__GE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year less than or equal to specified value.",
+                      "key": "year__LE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).",
+                      "key": "freq_desc",
+                      "value": "POINT IN TIME"
+                    },
+                    {
+                      "description": "Reference period description (e.g., YEAR, JAN, JUN).",
+                      "key": "reference_period_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format (JSON, XML, CSV). Defaults to JSON.",
+                      "key": "format",
+                      "value": "CSV"
+                    },
+                    {
+                      "description": "JSONP callback function name for cross-origin requests.",
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:10.000Z",
+              "updatedAt": "2026-07-28T00:29:10.000Z",
+              "uid": "35240-bd5a8797-6929-4c60-b690-621f08ff0d4d"
+            },
+            {
+              "id": "e88c8e81-1cce-4869-b695-6bab741eb6c1",
+              "name": "Unauthorized. Missing or invalid API key.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api_GET?key=<API Key>&commodity_desc=<string>&class_desc=<string>&statisticcat_desc=<string>&unit_desc=<string>&sector_desc=<string>&group_desc=<string>&state_alpha=<string>&state_name=<string>&county_name=<string>&agg_level_desc=COUNTY&year=<integer>&year__GE=<integer>&year__LE=<integer>&freq_desc=POINT IN TIME&reference_period_desc=<string>&format=CSV&callback=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api_GET"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key obtained by registering at the QuickStats API portal.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Commodity description (e.g., CORN, SOYBEANS, CATTLE).",
+                      "key": "commodity_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity class description.",
+                      "key": "class_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED).",
+                      "key": "statisticcat_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Unit of measurement (e.g., ACRES, BU, HEAD).",
+                      "key": "unit_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sector or division of the agricultural economy.",
+                      "key": "sector_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Commodity group description (e.g., FIELD CROPS, VEGETABLES).",
+                      "key": "group_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Two-letter state abbreviation (e.g., VA, IA, TX).",
+                      "key": "state_alpha",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Full state name.",
+                      "key": "state_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "County name.",
+                      "key": "county_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE).",
+                      "key": "agg_level_desc",
+                      "value": "COUNTY"
+                    },
+                    {
+                      "description": "Survey year (e.g., 2023). Supports operators like year__GE=2010.",
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year greater than or equal to specified value.",
+                      "key": "year__GE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Year less than or equal to specified value.",
+                      "key": "year__LE",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL).",
+                      "key": "freq_desc",
+                      "value": "POINT IN TIME"
+                    },
+                    {
+                      "description": "Reference period description (e.g., YEAR, JAN, JUN).",
+                      "key": "reference_period_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format (JSON, XML, CSV). Defaults to JSON.",
+                      "key": "format",
+                      "value": "CSV"
+                    },
+                    {
+                      "description": "JSONP callback function name for cross-origin requests.",
+                      "key": "callback",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:10.000Z",
+              "updatedAt": "2026-07-28T00:29:10.000Z",
+              "uid": "35240-e88c8e81-1cce-4869-b695-6bab741eb6c1"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:10.000Z",
+          "updatedAt": "2026-07-28T00:29:10.000Z",
+          "uid": "35240-7c4b39c1-b91e-46c4-a9c3-46968530fc79"
+        }
+      ],
+      "id": "c54c2bc4-6894-47d6-a6be-5f2d05356f16",
+      "createdAt": "2026-07-28T00:29:10.000Z",
+      "updatedAt": "2026-07-28T00:29:10.000Z",
+      "uid": "35240-c54c2bc4-6894-47d6-a6be-5f2d05356f16"
+    },
+    {
+      "name": "get_counts",
+      "item": [
+        {
+          "name": "USDA NASS Get Record Counts",
+          "id": "2c8d37aa-5e57-42ab-8028-2cbf3793eb21",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/get_counts?key=<string>&commodity_desc=<string>&state_alpha=<string>&year__GE=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "get_counts"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API key.",
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Commodity description to count records for.",
+                  "key": "commodity_desc",
+                  "value": "<string>"
+                },
+                {
+                  "description": "State abbreviation to filter.",
+                  "key": "state_alpha",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Year filter (greater than or equal).",
+                  "key": "year__GE",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns the total count of records that would be returned by a given query without fetching the actual data. Useful for validating queries before making full data requests, particularly to ensure results stay within the 50,000 record limit."
+          },
+          "response": [
+            {
+              "id": "a9ffc424-db16-4ce2-85cd-2ea5ad25b98f",
+              "name": "Count of records matching the query.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/get_counts?key=<API Key>&commodity_desc=<string>&state_alpha=<string>&year__GE=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "get_counts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Commodity description to count records for.",
+                      "key": "commodity_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "State abbreviation to filter.",
+                      "key": "state_alpha",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Year filter (greater than or equal).",
+                      "key": "year__GE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"count\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T00:29:10.000Z",
+              "updatedAt": "2026-07-28T00:29:10.000Z",
+              "uid": "35240-a9ffc424-db16-4ce2-85cd-2ea5ad25b98f"
+            },
+            {
+              "id": "fec8fc3b-40cb-4b85-9a1d-6e7aae71ce22",
+              "name": "Unauthorized. Missing or invalid API key.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/get_counts?key=<API Key>&commodity_desc=<string>&state_alpha=<string>&year__GE=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "get_counts"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Commodity description to count records for.",
+                      "key": "commodity_desc",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "State abbreviation to filter.",
+                      "key": "state_alpha",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Year filter (greater than or equal).",
+                      "key": "year__GE",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:10.000Z",
+              "updatedAt": "2026-07-28T00:29:10.000Z",
+              "uid": "35240-fec8fc3b-40cb-4b85-9a1d-6e7aae71ce22"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:10.000Z",
+          "updatedAt": "2026-07-28T00:29:10.000Z",
+          "uid": "35240-2c8d37aa-5e57-42ab-8028-2cbf3793eb21"
+        }
+      ],
+      "id": "3711be25-a508-47c9-8185-4bcb3caa656c",
+      "createdAt": "2026-07-28T00:29:10.000Z",
+      "updatedAt": "2026-07-28T00:29:10.000Z",
+      "uid": "35240-3711be25-a508-47c9-8185-4bcb3caa656c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://quickstats.nass.usda.gov/api"
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "35b53698-3eb2-47a5-a690-e1f90a8b4ba8",
+    "name": "USDA NASS QuickStats Parameters API",
+    "description": "The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.\n\nContact Support:\n Email: nass@usda.gov",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:07.000Z",
+    "updatedAt": "2026-07-28T00:29:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-35b53698-3eb2-47a5-a690-e1f90a8b4ba8"
+  },
+  "item": [
+    {
+      "name": "get_param_values",
+      "item": [
+        {
+          "name": "USDA NASS Get Parameter Values",
+          "id": "e841eab9-9737-4668-bff2-a2c6869b3de2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/get_param_values?key=<string>&param=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "get_param_values"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API key.",
+                  "key": "key",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).",
+                  "key": "param",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns all possible values for a specified QuickStats parameter, helping users discover valid values for building queries. Useful for finding valid commodity names, state codes, statistical categories, and other parameter values."
+          },
+          "response": [
+            {
+              "id": "d1dd13e0-eb1e-4d54-b277-af6807af78ba",
+              "name": "All valid values for the specified parameter.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/get_param_values?key=<API Key>&param=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "get_param_values"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).",
+                      "key": "param",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"param_values\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:08.000Z",
+              "updatedAt": "2026-07-28T00:29:08.000Z",
+              "uid": "35240-d1dd13e0-eb1e-4d54-b277-af6807af78ba"
+            },
+            {
+              "id": "bb767915-7783-4f47-bcab-9a8b216fd01b",
+              "name": "Unauthorized. Missing or invalid API key.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/get_param_values?key=<API Key>&param=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "get_param_values"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API key.",
+                      "key": "key",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc).",
+                      "key": "param",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:08.000Z",
+              "updatedAt": "2026-07-28T00:29:08.000Z",
+              "uid": "35240-bb767915-7783-4f47-bcab-9a8b216fd01b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:08.000Z",
+          "updatedAt": "2026-07-28T00:29:08.000Z",
+          "uid": "35240-e841eab9-9737-4668-bff2-a2c6869b3de2"
+        }
+      ],
+      "id": "08b4614b-25f1-4ba9-9f2f-9f9e4b5c9392",
+      "createdAt": "2026-07-28T00:29:08.000Z",
+      "updatedAt": "2026-07-28T00:29:08.000Z",
+      "uid": "35240-08b4614b-25f1-4ba9-9f2f-9f9e4b5c9392"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://quickstats.nass.usda.gov/api"
+    }
+  ]
+}

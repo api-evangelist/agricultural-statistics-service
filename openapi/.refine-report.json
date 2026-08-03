@@ -1,0 +1,16 @@
+{
+  "provider": "agricultural-statistics-service",
+  "sources": [
+    "agricultural-statistics-service-parameters-api-openapi.yml",
+    "agricultural-statistics-service-statistics-api-openapi.yml"
+  ],
+  "outputs": [
+    "agricultural-statistics-service-parameters-api-openapi.yml",
+    "agricultural-statistics-service-statistics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
