@@ -110,10 +110,6 @@ apis:
     url: json-structure/quickstats-api-statistics-record-structure.json
   - type: JSONLD
     url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-parameters.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-statistics.yaml
 - aid: agricultural-statistics-service:agricultural-statistics-service-statistics-api
   name: Agricultural Statistics Service Statistics API
   description: Agricultural statistics data retrieval and filtering
@@ -140,10 +136,6 @@ apis:
     url: json-structure/quickstats-api-statistics-record-structure.json
   - type: JSONLD
     url: json-ld/agricultural-statistics-service-quickstats-api-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-parameters.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/quickstats-statistics.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/agricultural-statistics-service/overview
