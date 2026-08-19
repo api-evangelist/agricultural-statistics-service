@@ -29,7 +29,7 @@ description: The National Agricultural Statistics Service (NASS) is an agency of
   monitoring covering the continental United States.
 created: '2024-12-03'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: agricultural-statistics-service:cropland-cros-api
   name: USDA NASS CroplandCROS API
