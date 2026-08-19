@@ -1,0 +1,701 @@
+{
+  "item": [
+    {
+      "id": "bfd6d135-e679-4816-923f-ac4298b5c2aa",
+      "name": "Statistics",
+      "description": {
+        "content": "Agricultural statistics data retrieval and filtering",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d266937-eb54-4f14-9fe2-4f9ed2b2b2d6",
+          "name": "USDA NASS Get Statistics",
+          "request": {
+            "name": "USDA NASS Get Statistics",
+            "description": {
+              "content": "Retrieves agricultural statistics data records from the Quick Stats database. Supports filtering by commodity, location, time period, and statistical category using comparison operators. Returns up to 50,000 records per request. Response formats include JSON (default), XML, and CSV.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api_GET"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) API key obtained by registering at the QuickStats API portal."
+                },
+                {
+                  "disabled": false,
+                  "key": "commodity_desc",
+                  "value": "<string>",
+                  "description": "Commodity description (e.g., CORN, SOYBEANS, CATTLE)."
+                },
+                {
+                  "disabled": false,
+                  "key": "class_desc",
+                  "value": "<string>",
+                  "description": "Commodity class description."
+                },
+                {
+                  "disabled": false,
+                  "key": "statisticcat_desc",
+                  "value": "<string>",
+                  "description": "Statistical category (e.g., AREA HARVESTED, PRODUCTION, PRICE RECEIVED)."
+                },
+                {
+                  "disabled": false,
+                  "key": "unit_desc",
+                  "value": "<string>",
+                  "description": "Unit of measurement (e.g., ACRES, BU, HEAD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sector_desc",
+                  "value": "<string>",
+                  "description": "Sector or division of the agricultural economy."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_desc",
+                  "value": "<string>",
+                  "description": "Commodity group description (e.g., FIELD CROPS, VEGETABLES)."
+                },
+                {
+                  "disabled": false,
+                  "key": "state_alpha",
+                  "value": "<string>",
+                  "description": "Two-letter state abbreviation (e.g., VA, IA, TX)."
+                },
+                {
+                  "disabled": false,
+                  "key": "state_name",
+                  "value": "<string>",
+                  "description": "Full state name."
+                },
+                {
+                  "disabled": false,
+                  "key": "county_name",
+                  "value": "<string>",
+                  "description": "County name."
+                },
+                {
+                  "disabled": false,
+                  "key": "agg_level_desc",
+                  "value": "<string>",
+                  "description": "Geographic aggregation level (NATIONAL, STATE, COUNTY, ZIP CODE)."
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "Survey year (e.g., 2023). Supports operators like year__GE=2010."
+                },
+                {
+                  "disabled": false,
+                  "key": "year__GE",
+                  "value": "<integer>",
+                  "description": "Year greater than or equal to specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "year__LE",
+                  "value": "<integer>",
+                  "description": "Year less than or equal to specified value."
+                },
+                {
+                  "disabled": false,
+                  "key": "freq_desc",
+                  "value": "<string>",
+                  "description": "Data collection frequency (ANNUAL, MONTHLY, WEEKLY, POINT IN TIME, SEASONAL)."
+                },
+                {
+                  "disabled": false,
+                  "key": "reference_period_desc",
+                  "value": "<string>",
+                  "description": "Reference period description (e.g., YEAR, JAN, JUN)."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format (JSON, XML, CSV). Defaults to JSON."
+                },
+                {
+                  "disabled": false,
+                  "key": "callback",
+                  "value": "<string>",
+                  "description": "JSONP callback function name for cross-origin requests."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d6c73d5-a783-44b5-855a-5906593a6d2c",
+              "name": "Agricultural statistics data records matching the query.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_GET"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "YOUR_API_KEY"
+                    },
+                    {
+                      "key": "commodity_desc",
+                      "value": "CORN"
+                    },
+                    {
+                      "key": "class_desc",
+                      "value": "ALL CLASSES"
+                    },
+                    {
+                      "key": "statisticcat_desc",
+                      "value": "AREA HARVESTED"
+                    },
+                    {
+                      "key": "unit_desc",
+                      "value": "ACRES"
+                    },
+                    {
+                      "key": "sector_desc",
+                      "value": "CROPS"
+                    },
+                    {
+                      "key": "group_desc",
+                      "value": "FIELD CROPS"
+                    },
+                    {
+                      "key": "state_alpha",
+                      "value": "VA"
+                    },
+                    {
+                      "key": "state_name",
+                      "value": "VIRGINIA"
+                    },
+                    {
+                      "key": "county_name",
+                      "value": "FAIRFAX"
+                    },
+                    {
+                      "key": "agg_level_desc",
+                      "value": "STATE"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "year__GE",
+                      "value": "2010"
+                    },
+                    {
+                      "key": "year__LE",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "freq_desc",
+                      "value": "ANNUAL"
+                    },
+                    {
+                      "key": "reference_period_desc",
+                      "value": "YEAR"
+                    },
+                    {
+                      "key": "format",
+                      "value": "JSON"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "myCallback"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"source_desc\": \"SURVEY\",\n      \"sector_desc\": \"CROPS\",\n      \"group_desc\": \"FIELD CROPS\",\n      \"commodity_desc\": \"CORN\",\n      \"class_desc\": \"ALL CLASSES\",\n      \"prodn_practice_desc\": \"ALL PRODUCTION PRACTICES\",\n      \"util_practice_desc\": \"ALL UTILIZATION PRACTICES\",\n      \"statisticcat_desc\": \"AREA HARVESTED\",\n      \"unit_desc\": \"ACRES\",\n      \"short_desc\": \"CORN - ACRES HARVESTED\",\n      \"domain_desc\": \"TOTAL\",\n      \"domaincat_desc\": \"NOT SPECIFIED\",\n      \"agg_level_desc\": \"STATE\",\n      \"state_ansi\": \"51\",\n      \"state_fips_code\": \"51\",\n      \"state_alpha\": \"VA\",\n      \"state_name\": \"VIRGINIA\",\n      \"asd_code\": \"00\",\n      \"asd_desc\": \"STATE TOTAL\",\n      \"county_ansi\": \"\",\n      \"county_code\": \"\",\n      \"county_name\": \"\",\n      \"zip_5\": \"\",\n      \"region_desc\": \"\",\n      \"watershed_code\": \"\",\n      \"watershed_desc\": \"\",\n      \"congr_district_code\": \"\",\n      \"country_code\": \"9000\",\n      \"country_name\": \"UNITED STATES\",\n      \"location_desc\": \"VIRGINIA\",\n      \"year\": 2023,\n      \"freq_desc\": \"ANNUAL\",\n      \"begin_code\": \"00\",\n      \"end_code\": \"00\",\n      \"reference_period_desc\": \"YEAR\",\n      \"week_ending\": \"\",\n      \"load_time\": \"2024-01-15 09:30:00\",\n      \"value\": \"400,000\",\n      \"CV_pct\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ace1a14-2501-47ae-aa3e-9a09fd1178cb",
+              "name": "Bad request. Too many records or invalid parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_GET"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "YOUR_API_KEY"
+                    },
+                    {
+                      "key": "commodity_desc",
+                      "value": "CORN"
+                    },
+                    {
+                      "key": "class_desc",
+                      "value": "ALL CLASSES"
+                    },
+                    {
+                      "key": "statisticcat_desc",
+                      "value": "AREA HARVESTED"
+                    },
+                    {
+                      "key": "unit_desc",
+                      "value": "ACRES"
+                    },
+                    {
+                      "key": "sector_desc",
+                      "value": "CROPS"
+                    },
+                    {
+                      "key": "group_desc",
+                      "value": "FIELD CROPS"
+                    },
+                    {
+                      "key": "state_alpha",
+                      "value": "VA"
+                    },
+                    {
+                      "key": "state_name",
+                      "value": "VIRGINIA"
+                    },
+                    {
+                      "key": "county_name",
+                      "value": "FAIRFAX"
+                    },
+                    {
+                      "key": "agg_level_desc",
+                      "value": "STATE"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "year__GE",
+                      "value": "2010"
+                    },
+                    {
+                      "key": "year__LE",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "freq_desc",
+                      "value": "ANNUAL"
+                    },
+                    {
+                      "key": "reference_period_desc",
+                      "value": "YEAR"
+                    },
+                    {
+                      "key": "format",
+                      "value": "JSON"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "myCallback"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"too many results\",\n  \"message\": \"The request would return more than 50,000 records. Please narrow your query.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9853c4a8-36bc-4747-906b-097473799dd2",
+              "name": "Unauthorized. Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api_GET"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "YOUR_API_KEY"
+                    },
+                    {
+                      "key": "commodity_desc",
+                      "value": "CORN"
+                    },
+                    {
+                      "key": "class_desc",
+                      "value": "ALL CLASSES"
+                    },
+                    {
+                      "key": "statisticcat_desc",
+                      "value": "AREA HARVESTED"
+                    },
+                    {
+                      "key": "unit_desc",
+                      "value": "ACRES"
+                    },
+                    {
+                      "key": "sector_desc",
+                      "value": "CROPS"
+                    },
+                    {
+                      "key": "group_desc",
+                      "value": "FIELD CROPS"
+                    },
+                    {
+                      "key": "state_alpha",
+                      "value": "VA"
+                    },
+                    {
+                      "key": "state_name",
+                      "value": "VIRGINIA"
+                    },
+                    {
+                      "key": "county_name",
+                      "value": "FAIRFAX"
+                    },
+                    {
+                      "key": "agg_level_desc",
+                      "value": "STATE"
+                    },
+                    {
+                      "key": "year",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "year__GE",
+                      "value": "2010"
+                    },
+                    {
+                      "key": "year__LE",
+                      "value": "2023"
+                    },
+                    {
+                      "key": "freq_desc",
+                      "value": "ANNUAL"
+                    },
+                    {
+                      "key": "reference_period_desc",
+                      "value": "YEAR"
+                    },
+                    {
+                      "key": "format",
+                      "value": "JSON"
+                    },
+                    {
+                      "key": "callback",
+                      "value": "myCallback"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"too many results\",\n  \"message\": \"The request would return more than 50,000 records. Please narrow your query.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d932634-2ba9-41db-9fc3-2b4b51c6e73f",
+          "name": "USDA NASS Get Record Counts",
+          "request": {
+            "name": "USDA NASS Get Record Counts",
+            "description": {
+              "content": "Returns the total count of records that would be returned by a given query without fetching the actual data. Useful for validating queries before making full data requests, particularly to ensure results stay within the 50,000 record limit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "get_counts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) API key."
+                },
+                {
+                  "disabled": false,
+                  "key": "commodity_desc",
+                  "value": "<string>",
+                  "description": "Commodity description to count records for."
+                },
+                {
+                  "disabled": false,
+                  "key": "state_alpha",
+                  "value": "<string>",
+                  "description": "State abbreviation to filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "year__GE",
+                  "value": "<integer>",
+                  "description": "Year filter (greater than or equal)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4d893fd-c223-47cd-b6a9-001a69d4e409",
+              "name": "Count of records matching the query.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get_counts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "YOUR_API_KEY"
+                    },
+                    {
+                      "key": "commodity_desc",
+                      "value": "CORN"
+                    },
+                    {
+                      "key": "state_alpha",
+                      "value": "VA"
+                    },
+                    {
+                      "key": "year__GE",
+                      "value": "2010"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1250\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c3937d-7500-470d-905f-34220ae3a1f2",
+              "name": "Unauthorized. Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "get_counts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "YOUR_API_KEY"
+                    },
+                    {
+                      "key": "commodity_desc",
+                      "value": "CORN"
+                    },
+                    {
+                      "key": "state_alpha",
+                      "value": "VA"
+                    },
+                    {
+                      "key": "year__GE",
+                      "value": "2010"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"too many results\",\n  \"message\": \"The request would return more than 50,000 records. Please narrow your query.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://quickstats.nass.usda.gov/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2706db3e-b317-46b9-98d4-107f568a1297",
+    "name": "USDA NASS QuickStats Parameters Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.\n\nContact Support:\n Email: nass@usda.gov",
+      "type": "text/plain"
+    }
+  }
+}

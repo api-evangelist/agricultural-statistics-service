@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "USDA NASS QuickStats Parameters API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parameters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "USDA NASS Get Parameter Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://quickstats.nass.usda.gov/api/get_param_values",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              },
+              {
+                "name": "param",
+                "value": "",
+                "type": "query",
+                "description": "The parameter name for which to return all valid values (e.g., commodity_desc, state_alpha, statisticcat_desc)."
+              }
+            ]
+          },
+          "docs": "Returns all possible values for a specified QuickStats parameter, helping users discover valid values for building queries. Useful for finding valid commodity names, state codes, statistical categories, and other parameter values."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
