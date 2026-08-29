@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: USDA NASS QuickStats Parameters Statistics API
   description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.
@@ -293,6 +293,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CountResponse:
+      type: object
+      title: Count Response
+      description: Response containing the record count for a query.
+      properties:
+        count:
+          type: integer
+          description: Total number of records matching the query parameters.
+          example: 1250
     StatisticsRecord:
       type: object
       title: Statistics Record
@@ -370,25 +379,6 @@ components:
           type: string
           description: Coefficient of variation percentage (data reliability indicator).
           example: ''
-    StatisticsResponse:
-      type: object
-      title: Statistics Response
-      description: Response from the QuickStats api_GET endpoint.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/StatisticsRecord'
-          description: Array of statistics records matching the query.
-    CountResponse:
-      type: object
-      title: Count Response
-      description: Response containing the record count for a query.
-      properties:
-        count:
-          type: integer
-          description: Total number of records matching the query parameters.
-          example: 1250
     ErrorResponse:
       type: object
       title: Error Response
@@ -402,6 +392,16 @@ components:
           type: string
           description: Human-readable error message.
           example: The request would return more than 50,000 records. Please narrow your query.
+    StatisticsResponse:
+      type: object
+      title: Statistics Response
+      description: Response from the QuickStats api_GET endpoint.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatisticsRecord'
+          description: Array of statistics records matching the query.
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
