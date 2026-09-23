@@ -1,8 +1,7 @@
 {
   "provider": "agricultural-statistics-service",
   "sources": [
-    "agricultural-statistics-service-parameters-api-openapi.yml",
-    "agricultural-statistics-service-statistics-api-openapi.yml"
+    "_ae-authored/agricultural-statistics-service-quickstats-api.yaml"
   ],
   "outputs": [
     "agricultural-statistics-service-parameters-api-openapi.yml",
@@ -12,7 +11,12 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "agricultural-statistics-service-quickstats-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "agricultural-statistics-service-parameters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agricultural-statistics-service-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

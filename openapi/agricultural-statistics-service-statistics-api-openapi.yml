@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: USDA NASS QuickStats Parameters Statistics API
+  title: USDA NASS QuickStats Statistics API
   description: The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location (state, county, zip), and time with comparison operators. Returns data in JSON, XML, or CSV format. An API key is required. Maximum 50,000 records per request.
   version: v1
   contact:
@@ -293,15 +293,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CountResponse:
-      type: object
-      title: Count Response
-      description: Response containing the record count for a query.
-      properties:
-        count:
-          type: integer
-          description: Total number of records matching the query parameters.
-          example: 1250
     StatisticsRecord:
       type: object
       title: Statistics Record
@@ -402,6 +393,15 @@ components:
           items:
             $ref: '#/components/schemas/StatisticsRecord'
           description: Array of statistics records matching the query.
+    CountResponse:
+      type: object
+      title: Count Response
+      description: Response containing the record count for a query.
+      properties:
+        count:
+          type: integer
+          description: Total number of records matching the query parameters.
+          example: 1250
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
