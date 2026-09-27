@@ -31,7 +31,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agricultural-statistics-service.png
 tags:
 - Agriculture
-- Federal-Government
+- Federal Government
 - Statistics
 - Open Data
 - Geospatial
@@ -41,6 +41,7 @@ tags_raw:
 - Statistics
 - Open Data
 - Geospatial
+- Federal-Government
 description: The National Agricultural Statistics Service (NASS) is an agency of the United States Department of Agriculture
   (USDA) whose mission is to support the United States, its agricultural sector, and rural communities by providing accurate,
   objective, and meaningful statistical information and services. NASS operates the QuickStats API for programmatic access
