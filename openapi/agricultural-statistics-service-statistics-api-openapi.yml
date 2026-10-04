@@ -293,28 +293,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      title: Error Response
-      description: Error response from the QuickStats API.
-      properties:
-        error:
-          type: string
-          description: Error type or description.
-          example: too many results
-        message:
-          type: string
-          description: Human-readable error message.
-          example: The request would return more than 50,000 records. Please narrow your query.
-    CountResponse:
-      type: object
-      title: Count Response
-      description: Response containing the record count for a query.
-      properties:
-        count:
-          type: integer
-          description: Total number of records matching the query parameters.
-          example: 1250
     StatisticsResponse:
       type: object
       title: Statistics Response
@@ -402,6 +380,28 @@ components:
           type: string
           description: Coefficient of variation percentage (data reliability indicator).
           example: ''
+    ErrorResponse:
+      type: object
+      title: Error Response
+      description: Error response from the QuickStats API.
+      properties:
+        error:
+          type: string
+          description: Error type or description.
+          example: too many results
+        message:
+          type: string
+          description: Human-readable error message.
+          example: The request would return more than 50,000 records. Please narrow your query.
+    CountResponse:
+      type: object
+      title: Count Response
+      description: Response containing the record count for a query.
+      properties:
+        count:
+          type: integer
+          description: Total number of records matching the query parameters.
+          example: 1250
   securitySchemes:
     ApiKeyQuery:
       type: apiKey
