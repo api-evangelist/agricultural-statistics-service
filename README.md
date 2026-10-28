@@ -1,4 +1,4 @@
-# Agricultural Statistics Service (agricultural-statistics-service)
+# Agricultural Statistics Service
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,159 +66,172 @@
 
 The National Agricultural Statistics Service (NASS) is an agency of the United States Department of Agriculture (USDA) whose mission is to support the United States, its agricultural sector, and rural communities by providing accurate, objective, and meaningful statistical information and services. NASS operates the QuickStats API for programmatic access to agricultural survey and census data, as well as geospatial APIs for cropland data, vegetation conditions, and crop moisture monitoring covering the continental United States.
 
-**URL:** [https://www.nass.usda.gov/](https://www.nass.usda.gov/)
+**Areas:** Agriculture · Federal Government · Statistics · Open Data · Geospatial
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Agricultural Statistics Service on APIs.io
 
-## Tags:
+Everything profiled for Agricultural Statistics Service is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/agricultural-statistics-service/](https://apis.io/providers/agricultural-statistics-service/)** — or go straight to one of the APIs or properties below.
 
- - Agriculture, Federal Government, Statistics, Open Data, Geospatial
+### APIs (5)
 
-## Timestamps
+- [USDA NASS CroplandCROS API](https://apis.io/apis/agricultural-statistics-service/cropland-cros-api/) — The CroplandCROS API provides access to the Cropland Data Layer (CDL), a crop-specific land cover data layer with 30-meter spatial resolution covering the…
+- [USDA NASS VegScape API](https://apis.io/apis/agricultural-statistics-service/vegscape-api/) — The VegScape API delivers vegetation condition indices at 250-meter spatial resolution covering the continental United States. Data includes daily and…
+- [USDA NASS Crop CASMA API](https://apis.io/apis/agricultural-statistics-service/crop-casma-api/) — The Crop CASMA API provides programmatic access to crop vegetation and soil moisture conditions using NASA SMAP and MODIS satellite data for agricultural…
+- [Agricultural Statistics Service Parameters API](https://apis.io/apis/agricultural-statistics-service/agricultural-statistics-service-parameters-api/) — Parameter value discovery for query building
+- [Agricultural Statistics Service Statistics API](https://apis.io/apis/agricultural-statistics-service/agricultural-statistics-service-statistics-api/) — Agricultural statistics data retrieval and filtering
 
-- **Created:** 2024-12-03
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### USDA NASS QuickStats API
-The QuickStats API provides direct programmatic access to the statistical information contained in the NASS Quick Stats database, covering official published aggregate estimates related to U.S. agricultural production from NASS surveys and the Census of Agriculture. Supports filtering by commodity, location, and time with comparison operators. Returns data in JSON, XML, or CSV format.
+#### Agentic access (1)
 
-**Human URL:** [https://quickstats.nass.usda.gov/api](https://quickstats.nass.usda.gov/api)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Agricultural Statistics Service Agentic Access](https://apis.io/agentic-access/agricultural-statistics-service/agricultural-statistics-service-agentic-access/)
 
- - Agricultural Statistics, Crop Data, Livestock Data, Census Of Agriculture, Open Data
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://quickstats.nass.usda.gov/api)
-- [API Reference](https://quickstats.nass.usda.gov/api/#param_define)
-- [Authentication](https://quickstats.nass.usda.gov/api)
-- [OpenAPI](openapi/agricultural-statistics-service-quickstats-api.yaml)
-- [Statistics Record Schema](json-schema/quickstats-api-statistics-record-schema.json)
-- [Statistics Response Schema](json-schema/quickstats-api-statistics-response-schema.json)
-- [Count Response Schema](json-schema/quickstats-api-count-response-schema.json)
-- [Statistics Record Structure](json-structure/quickstats-api-statistics-record-structure.json)
-- [JSON-LD Context](json-ld/agricultural-statistics-service-quickstats-api-context.jsonld)
+- [Count Response](https://apis.io/schemas/agricultural-statistics-service/quickstats-api-count-response/)
+- [Error Response](https://apis.io/schemas/agricultural-statistics-service/quickstats-api-error-response/)
+- [Parameter Values Response](https://apis.io/schemas/agricultural-statistics-service/quickstats-api-param-values-response/)
+- [Statistics Record](https://apis.io/schemas/agricultural-statistics-service/quickstats-api-statistics-record/)
+- [Statistics Response](https://apis.io/schemas/agricultural-statistics-service/quickstats-api-statistics-response/)
 
-### USDA NASS CroplandCROS API
-The CroplandCROS API provides access to the Cropland Data Layer (CDL), a crop-specific land cover data layer with 30-meter spatial resolution covering the continental United States. Historical CDL data is available back to 1997 for select states.
+#### JSON Structure (5)
 
-**Human URL:** [https://www.nass.usda.gov/developer/index.php](https://www.nass.usda.gov/developer/index.php)
+Data models expressed in JSON Structure.
 
-#### Tags:
+- [Quickstats Api Count Response Structure](https://apis.io/json-structure/agricultural-statistics-service/quickstats-api-count-response-structure/)
+- [Quickstats Api Error Response Structure](https://apis.io/json-structure/agricultural-statistics-service/quickstats-api-error-response-structure/)
+- [Quickstats Api Param Values Response Structure](https://apis.io/json-structure/agricultural-statistics-service/quickstats-api-param-values-response-structure/)
+- [Quickstats Api Statistics Record Structure](https://apis.io/json-structure/agricultural-statistics-service/quickstats-api-statistics-record-structure/)
+- [Quickstats Api Statistics Response Structure](https://apis.io/json-structure/agricultural-statistics-service/quickstats-api-statistics-response-structure/)
 
- - Cropland, Geospatial, Remote Sensing, Land Cover
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://www.nass.usda.gov/developer/index.php)
-- [Data API](https://nassgeodata.gmu.edu/CropScapeService)
+- [Agricultural Statistics Service Quickstats Api Context](https://apis.io/jsonld/agricultural-statistics-service/agricultural-statistics-service-quickstats-api-context/)
 
-### USDA NASS VegScape API
-The VegScape API delivers vegetation condition indices at 250-meter spatial resolution covering the continental United States. Data includes daily and weekly vegetation index composites available since 2000.
+#### Vocabulary (1)
 
-**Human URL:** [https://www.nass.usda.gov/developer/index.php](https://www.nass.usda.gov/developer/index.php)
+The provider's domain terms, defined.
 
-#### Tags:
+- [Agricultural Statistics Service Vocabulary](https://apis.io/vocabularies/agricultural-statistics-service/agricultural-statistics-service-vocabulary/)
 
- - Vegetation, Geospatial, Crop Monitoring, Remote Sensing
+#### Examples (5)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://www.nass.usda.gov/developer/index.php)
-- [Data API](https://nassgeodata.gmu.edu/VegScape)
+- [Quickstats Api Count Response Example](https://apis.io/examples/agricultural-statistics-service/quickstats-api-count-response-example/)
+- [Quickstats Api Error Response Example](https://apis.io/examples/agricultural-statistics-service/quickstats-api-error-response-example/)
+- [Quickstats Api Param Values Response Example](https://apis.io/examples/agricultural-statistics-service/quickstats-api-param-values-response-example/)
+- [Quickstats Api Statistics Record Example](https://apis.io/examples/agricultural-statistics-service/quickstats-api-statistics-record-example/)
+- [Quickstats Api Statistics Response Example](https://apis.io/examples/agricultural-statistics-service/quickstats-api-statistics-response-example/)
 
-### USDA NASS Crop CASMA API
-The Crop CASMA API provides programmatic access to crop vegetation and soil moisture conditions using NASA SMAP and MODIS satellite data for agricultural drought monitoring and crop condition analysis.
+#### Collections (4)
 
-**Human URL:** [https://www.nass.usda.gov/developer/index.php](https://www.nass.usda.gov/developer/index.php)
+Postman and Open Collection request collections.
 
-#### Tags:
+- [USDA NASS QuickStats Parameters API](https://apis.io/collections/agricultural-statistics-service/open-agricultural-statistics-service-parameters-api/)
+- [USDA NASS QuickStats Parameters Statistics API](https://apis.io/collections/agricultural-statistics-service/open-agricultural-statistics-service-statistics-api/)
+- [USDA NASS QuickStats Parameters API](https://apis.io/collections/agricultural-statistics-service/postman-agricultural-statistics-service-parameters-api/)
+- [USDA NASS QuickStats Parameters Statistics API](https://apis.io/collections/agricultural-statistics-service/postman-agricultural-statistics-service-statistics-api/)
 
- - Soil Moisture, Crop Condition, Geospatial, Drought Monitoring
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://www.nass.usda.gov/developer/index.php)
-- [Data API](https://nassgeodata.gmu.edu/CropCASMA)
+- [Agricultural Statistics Service — jsonschema rules](https://apis.io/rules/agricultural-statistics-service/agricultural-statistics-service-jsonschema-spectral-rules/)
+- [Agricultural Statistics Service API Rules](https://apis.io/rules/agricultural-statistics-service/agricultural-statistics-service-spectral-rules/)
 
-## Common Properties
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Agricultural Statistics Service Authentication](https://apis.io/security/agricultural-statistics-service/agricultural-statistics-service-authentication/)
+- [Agricultural Statistics Service Domain Security](https://apis.io/security/agricultural-statistics-service/agricultural-statistics-service-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Agricultural Statistics Service Plans Pricing](https://apis.io/plans/agricultural-statistics-service/agricultural-statistics-service-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Agricultural Statistics Service Rate Limits](https://apis.io/rate-limits/agricultural-statistics-service/agricultural-statistics-service-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Agricultural Statistics Service Finops](https://apis.io/finops/agricultural-statistics-service/agricultural-statistics-service-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.nass.usda.gov/)
-- [Developer Portal](https://www.nass.usda.gov/developer/index.php)
-- [GitHub Organization](https://github.com/usda)
-- [Terms of Service](https://www.usda.gov/policies-and-links)
-- [Privacy Policy](https://www.usda.gov/privacy-policy)
+- [Blog](https://www.nass.usda.gov/rss/news.xml)
+- [Terms of service](https://www.usda.gov/policies-and-links)
+- [Privacy policy](https://www.usda.gov/privacy-policy)
+- [GitHub](https://github.com/usda)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| API Key Authentication | All API access requires registration and an API key obtained by agreeing to NASS Terms of Service. |
-| Multiple Output Formats | The QuickStats API supports JSON, XML, and CSV response formats with optional JSONP callback support. |
-| Rich Query Operators | Support for comparison operators including GE, LE, GT, LT, NE, LIKE, and NOT_LIKE for flexible data filtering. |
-| Agricultural Census Data | Access to the complete Census of Agriculture and annual survey estimates covering all major commodity types. |
-| Geospatial Data Coverage | Geospatial APIs provide 30-meter and 250-meter resolution data layers covering the entire continental United States. |
-| Historical Time Series | Access to historical agricultural statistics and cropland data extending back to 1997 for select states. |
+**Kin Score 34.6** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 28.1 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 41.7 |
+| Access clarity | 28.9 |
 
-| Name | Description |
-|------|-------------|
-| Crop Production Analysis | Query crop production estimates by commodity, year, and location for market analysis and supply forecasting. |
-| Livestock Population Monitoring | Access livestock inventory and production statistics at state and county levels for supply chain planning. |
-| Geospatial Cropland Mapping | Use the CroplandCROS API to integrate 30-meter resolution cropland data into GIS applications and land use analysis. |
-| Agricultural Drought Monitoring | Monitor crop condition and soil moisture via the Crop CASMA API to assess drought impacts on agricultural production. |
-| Agricultural Research | Access the full Quick Stats database for academic research on agricultural trends, productivity, and policy analysis. |
-| Food Security Assessment | Combine crop production, livestock, and vegetation data to assess regional and national food security conditions. |
+**Agent readiness 33.2** — agent-ready
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| R Package rnassqs | Open-source R package for accessing NASS QuickStats API data directly within R statistical computing environments. |
-| Python Package usdarnass | Python package providing programmatic access to the USDA NASS QuickStats API for data analysis workflows. |
-| data.gov Catalog | NASS Quick Stats datasets are cataloged on catalog.data.gov for broader federal data discovery. |
-| NASA SMAP | Crop CASMA integrates NASA SMAP satellite data for soil moisture monitoring. |
+**Regulatory alignment 24.5** — Government & Public Sector
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agricultural-statistics-service/](https://apis.io/providers/agricultural-statistics-service/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [USDA NASS QuickStats API](openapi/agricultural-statistics-service-quickstats-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Agricultural Statistics Service: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Statistics Record Schema](json-schema/quickstats-api-statistics-record-schema.json)
-- [Statistics Response Schema](json-schema/quickstats-api-statistics-response-schema.json)
-- [Parameter Values Response Schema](json-schema/quickstats-api-param-values-response-schema.json)
-- [Count Response Schema](json-schema/quickstats-api-count-response-schema.json)
-- [Error Response Schema](json-schema/quickstats-api-error-response-schema.json)
-
-### JSON Structure
-
-- [Statistics Record Structure](json-structure/quickstats-api-statistics-record-structure.json)
-- [Statistics Response Structure](json-structure/quickstats-api-statistics-response-structure.json)
-- [Count Response Structure](json-structure/quickstats-api-count-response-structure.json)
-
-### JSON-LD
-
-- [QuickStats API Context](json-ld/agricultural-statistics-service-quickstats-api-context.jsonld)
-
-## Vocabulary
-
-- [Agricultural Statistics Service Vocabulary](vocabulary/agricultural-statistics-service-vocabulary.yaml) — Unified taxonomy mapping 3 resources, 1 action, 0 workflows, and 3 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Agricultural Statistics Service Spectral Rules](rules/agricultural-statistics-service-spectral-rules.yml) — 22 rules across 9 categories enforcing USDA NASS API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/agricultural-statistics-service/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
