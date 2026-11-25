@@ -185,18 +185,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 34.6** — thin · rubric 0.24.0 · scored 2026-10-17
+**Kin Score 32.8** — thin · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 71.4 |
 | Contract quality | 28.1 |
 | Contract governance | 27.3 |
-| Operational transparency | 10.5 |
+| Operational transparency | 11.9 |
 | Developer ergonomics | 41.7 |
-| Access clarity | 28.9 |
+| Access clarity | 23.4 |
 
-**Agent readiness 33.2** — agent-ready
+**Agent readiness 27.4** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -206,7 +206,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | MCP Server | — |
 | Auth Clarity | bearer (partial credit) |
 | Idempotency | na |
-| Error Semantics | verified |
+| Error Semantics | derived (partial credit) |
 | OpenAPI Examples | verified |
 | Rate Limit Signal | derived (partial credit) |
 | Event Surface Described | — |
@@ -219,8 +219,14 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Protected Resource Metadata | — |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 24.5** — Government & Public Sector
+**Regulatory alignment 18.6** — Government & Public Sector
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agricultural-statistics-service/](https://apis.io/providers/agricultural-statistics-service/).
 
